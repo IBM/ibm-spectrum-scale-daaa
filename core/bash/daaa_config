@@ -1,0 +1,93 @@
+
+#
+# Copyright 2020 IBM Corporation
+# and other contributors as indicated by the @author tags.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+########################################
+# Data Accelerator for AI and Analytics
+# Environment Configuration
+
+# unique id for the job
+UNIQUE=$1
+
+##############################################
+# PLEASE UPDATE ACCORDING TO YOUR ENVIRONMENT
+
+# Following is a simple example for single NFS, OBJ, Scale AFM relationships.
+# If you have multiple relationships of the same type (i.e. multiple buckets)
+# enhance the # DISCOVER connection details and # GPFS section and also script prepFileLists.sh
+
+# DISCOVER
+# rest credentials
+DISCOVER_REST_USER="sdadmin"
+DISCOVER_REST_PASSWORD="Passw0rd"
+DISCOVER_REST_SERVER="192.168.1.230"
+
+# connection details (gather from Discover GUI > Admin > Data Source Connections details)
+DISCOVER_CONNECTION_PLATFORM_NFS="NFS"
+DISCOVER_CONNECTION_PLATFORM_OBJ="IBM COS"
+DISCOVER_CONNECTION_PLATFORM_ARC="Spectrum Scale"
+DISCOVER_CONNECTION_DATASOURCE_NFS="A2D2_NFS"
+DISCOVER_CONNECTION_DATASOURCE_OBJ="a2d2"
+DISCOVER_CONNECTION_DATASOURCE_ARC="fs0"
+
+
+# GPFS
+# ESS3000 storage cluster > High Performance Smart Storage Tier
+ESS3K_MGMT_USER="root"
+ESS3K_MGMT_PASSWORD="Passw0rd"
+ESS3K_MGMT_SERVER="192.168.1.52"
+ESS3K_MGMT_HOME_PATH="/root/"
+
+# GPFS fs and fset details
+GPFS_FS=ess3000_4M
+GPFS_FS_PATH=/gpfs/ess3000_4M/
+COS_FSET=a2d2_cos
+NFS_FSET=a2d2_nfs
+ARC_FSET=a2d2_arc
+
+# NFS Server
+NFS_SERVER_BASE_PATH="/data2/nfs/"
+
+# Archive server
+ARCHIVE_USER="archi"
+ARCHIVE_SUDO="sudo "    # "sudo " / ""
+ARCHIVE_PASSWORD="Passw0rd"
+ARCHIVE_SERVER="192.168.1.240"
+ARCHIVE_HOME_PATH="/home/archi/"
+ARCHIVE_BASE_PATH="/ibm/fs0/archive/"
+
+# provide a content file into the cache fileset that lists what is cached (yes/no)
+CONTENT_FILE="yes"
+
+###############################################################
+# YOU PROPABLY DON'T NEED TO CHANGE SOMETHING BELOW THIS POINT
+
+# who is executing the job, (LSF does not execute jobs as root)
+ME=$(whoami)
+
+# remember args given by user on panel
+LSF_ARGS=/home/${ME}/${UNIQUE}_recLSFArgs.txt
+
+# some temp dir, update this if working with root is needed
+BASE_TMP=/home/${ME}/
+
+# store discover search results
+DISCOVER_SEARCH_RES=${BASE_TMP}${UNIQUE}_discover_search_res.txt
+DISCOVER_SEARCH_REQUEST=${BASE_TMP}${UNIQUE}_discover_search_req.txt
+DISCOVER_SEARCH_TO_AFM=${BASE_TMP}${UNIQUE}_discover_search_afm.txt
+
+
+

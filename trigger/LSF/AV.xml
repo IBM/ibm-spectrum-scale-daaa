@@ -1,0 +1,206 @@
+<!--
+ Copyright 2020 IBM Corporation
+ and other contributors as indicated by the @author tags.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<agent resources="resources" application="AV" type="ABAQUS" category="Job Submission"> 
+  <info>Submit a job: AV</info>  
+  <lastmodified>2020-07-01 08:22:34</lastmodified>  
+  <modifier>dean</modifier>  
+  <action id="submit" label="submit" result="text/xml">AV.cmd</action>  
+  <repository> 
+    <application id="openshift" state="expandEnable" info="OpenShift" helpText="Asterisk (*) = required field."> 
+      <option defaultValue="" id="OC_PVC" label="PVC:" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="OC_NAMESPACE" label="Namespace:" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="OC_PATH_EXEC" label="Path to Exec:" required="false" hidden="false" type="text" editable="true"/> 
+    </application>  
+    <application id="carlocation" state="expandEnable" info="Camera-Location" helpText="Asterisk (*) = required field."> 
+      <option defaultValue="no" id="P_FL" label="Front Left" required="false" hidden="false" type="checkbox" editable="true" labelPosition="left">no</option>  
+      <option defaultValue="no" id="P_FC" label="Front Center" required="false" hidden="false" type="checkbox" editable="true" labelPosition="left">no</option>  
+      <option defaultValue="no" id="P_FR" label="Front Right" required="false" hidden="false" type="checkbox" editable="true" labelPosition="left">no</option>  
+      <option defaultValue="no" id="P_ML" label="Middle Left" required="false" hidden="false" type="checkbox" editable="true" labelPosition="left">no</option>  
+      <option defaultValue="no" id="P_MR" label="Middle Right" required="false" hidden="false" type="checkbox" editable="true" labelPosition="left">no</option>  
+      <option defaultValue="no" id="P_RL" label="Rear Left" required="false" hidden="false" type="checkbox" editable="true" labelPosition="left">no</option>  
+      <option defaultValue="no" id="P_RC" label="Rear Center" required="false" hidden="false" type="checkbox" editable="true" labelPosition="left">no</option>  
+      <option defaultValue="no" id="P_RR" label="Rear Right" required="false" hidden="false" type="checkbox" editable="true" labelPosition="left">no</option> 
+    </application>  
+    <application id="labels" state="expandEnable" info="Labels" helpText="Asterisk (*) = required field."> 
+      <option id="label8" type="label" helpText="Car:"/>  
+      <option defaultValue="" id="lCAR" required="false" hidden="false" type="label" editable="true" helpText="Car:"/>  
+      <option defaultValue="" id="MIN_CAR" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_CAR" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label9" type="label" helpText="Bicycle:"/>  
+      <option defaultValue="" id="lBICYCLE" required="false" hidden="false" type="label" editable="true" helpText="Bicycle:"/>  
+      <option defaultValue="" id="MIN_BICYCLE" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_BICYCLE" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label10" type="label" helpText="Pedestrian:"/>  
+      <option defaultValue="" id="lPEDESTRIAN" required="false" hidden="false" type="label" editable="true" helpText="Pedestrian:"/>  
+      <option defaultValue="" id="MIN_PEDESTRIAN" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_PEDESTRIAN" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label11" type="label" helpText="Truck:"/>  
+      <option defaultValue="" id="lTRUCK" required="false" hidden="false" type="label" editable="true" helpText="Truck:"/>  
+      <option defaultValue="" id="MIN_TRUCK" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_TRUCK" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label12" type="label" helpText="Small vehicles:"/>  
+      <option defaultValue="" id="lSMALL_VEHICLES" required="false" hidden="false" type="label" editable="true" helpText="Small vehicles:"/>  
+      <option defaultValue="" id="MIN_SMALL_VEHICLES" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_SMALL_VEHICLES" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label13" type="label" helpText="Traffic signal:"/>  
+      <option defaultValue="" id="lTRAFFIC_SIGNAL" required="false" hidden="false" type="label" editable="true" helpText="Traffic signal:"/>  
+      <option defaultValue="" id="MIN_TRAFFIC_SIGNAL" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_TRAFFIC_SIGNAL" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label14" type="label" helpText="Traffic sign:"/>  
+      <option defaultValue="" id="lTRAFFIC_SIGN" required="false" hidden="false" type="label" editable="true" helpText="Traffic sign:"/>  
+      <option defaultValue="" id="MIN_TRAFFIC_SIGN" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_TRAFFIC_SIGN" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label15" type="label" helpText="Utility vehicle:"/>  
+      <option defaultValue="" id="lUTILITY_VEHICLE" required="false" hidden="false" type="label" editable="true" helpText="Utility vehicle:"/>  
+      <option defaultValue="" id="MIN_UTILITY_VEHICLE" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_UTILITY_VEHICLE" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label16" type="label" helpText="Sidebars:"/>  
+      <option defaultValue="" id="lSIDEBARS" required="false" hidden="false" type="label" editable="true" helpText="Sidebars:"/>  
+      <option defaultValue="" id="MIN_SIDEBARS" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_SIDEBARS" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label17" type="label" helpText="Speed bumper:"/>  
+      <option defaultValue="" id="lSPEED_BUMPER" required="false" hidden="false" type="label" editable="true" helpText="Speed bumper:"/>  
+      <option defaultValue="" id="MIN_SPEED_BUMPER" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_SPEED_BUMPER" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label18" type="label" helpText="Curbstone:"/>  
+      <option defaultValue="" id="lCURBSTONE" required="false" hidden="false" type="label" editable="true" helpText="Curbstone:"/>  
+      <option defaultValue="" id="MIN_CURBSTONE" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_CURBSTONE" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label19" type="label" helpText="Solid line:"/>  
+      <option defaultValue="" id="lSOLID_LINE" required="false" hidden="false" type="label" editable="true" helpText="Solid line:"/>  
+      <option defaultValue="" id="MIN_SOLID_LINE" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_SOLID_LINE" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label20" type="label" helpText="Irrelevant signs:"/>  
+      <option defaultValue="" id="lIRRELEVANT_SIGNS" required="false" hidden="false" type="label" editable="true" helpText="Irrelevant signs:"/>  
+      <option defaultValue="" id="MIN_IRRELEVANT_SIGNS" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_IRRELEVANT_SIGNS" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label21" type="label" helpText="Road blocks:"/>  
+      <option defaultValue="" id="lROAD_BLOCKS" required="false" hidden="false" type="label" editable="true" helpText="Road blocks:"/>  
+      <option defaultValue="" id="MIN_ROAD_BLOCKS" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_ROAD_BLOCKS" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label22" type="label" helpText="Tractor:"/>  
+      <option defaultValue="" id="lTRACTOR" required="false" hidden="false" type="label" editable="true" helpText="Tractor:"/>  
+      <option defaultValue="" id="MIN_TRACTOR" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_TRACTOR" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label23" type="label" helpText="Non-drivable street:"/>  
+      <option defaultValue="" id="lNONDRIVABLE_STREET" required="false" hidden="false" type="label" editable="true" helpText="Non-drivable street:"/>  
+      <option defaultValue="" id="MIN_NONDRIVABLE_STREET" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_NONDRIVABLE_STREET" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label24" type="label" helpText="Zebra crossing:"/>  
+      <option defaultValue="" id="lZEBRA_CROSSING" required="false" hidden="false" type="label" editable="true" helpText="Zebra crossing:"/>  
+      <option defaultValue="" id="MIN_ZEBRA_CROSSING" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_ZEBRA_CROSSING" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label25" type="label" helpText="Obstacles / trash:"/>  
+      <option defaultValue="" id="lOBSTACLES_/_TRASH" required="false" hidden="false" type="label" editable="true" helpText="Obstacles / trash:"/>  
+      <option defaultValue="" id="MIN_OBSTACLES_TRASH" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_OBSTACLES_TRASH" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label26" type="label" helpText="Poles:"/>  
+      <option defaultValue="" id="lPOLES" required="false" hidden="false" type="label" editable="true" helpText="Poles:"/>  
+      <option defaultValue="" id="MIN_POLES" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_POLES" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label27" type="label" helpText="RD restricted area:"/>  
+      <option defaultValue="" id="lRD_RESTRICTED_AREA" required="false" hidden="false" type="label" editable="true" helpText="RD restricted area:"/>  
+      <option defaultValue="" id="MIN_RD_RESTRICTED_AREA" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_RD_RESTRICTED_AREA" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label28" type="label" helpText="Animals:"/>  
+      <option defaultValue="" id="lANIMALS" required="false" hidden="false" type="label" editable="true" helpText="Animals:"/>  
+      <option defaultValue="" id="MIN_ANIMALS" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_ANIMALS" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label29" type="label" helpText="Grid structure:"/>  
+      <option defaultValue="" id="lGRID_STRUCTURE" required="false" hidden="false" type="label" editable="true" helpText="Grid structure:"/>  
+      <option defaultValue="" id="MIN_GRID_STRUCTURE" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_GRID_STRUCTURE" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label30" type="label" helpText="Signal corpus:"/>  
+      <option defaultValue="" id="lSIGNAL_CORPUS" required="false" hidden="false" type="label" editable="true" helpText="Signal corpus:"/>  
+      <option defaultValue="" id="MIN_SIGNAL_CORPUS" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_SIGNAL_CORPUS" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label31" type="label" helpText="Drivable cobblestone:"/>  
+      <option defaultValue="" id="lDRIVABLE_COBBLESTONE" required="false" hidden="false" type="label" editable="true" helpText="Drivable cobblestone:"/>  
+      <option defaultValue="" id="MIN_DRIVABLE_COBBLESTONE" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_DRIVABLE_COBBLESTONE" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label32" type="label" helpText="Electronic traffic:"/>  
+      <option defaultValue="" id="lELECTRONIC_TRAFFIC" required="false" hidden="false" type="label" editable="true" helpText="Electronic traffic:"/>  
+      <option defaultValue="" id="MIN_ELECTRONIC_TRAFFIC" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_ELECTRONIC_TRAFFIC" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label33" type="label" helpText="Slow drive area:"/>  
+      <option defaultValue="" id="lSLOW_DRIVE_AREA" required="false" hidden="false" type="label" editable="true" helpText="Slow drive area:"/>  
+      <option defaultValue="" id="MIN_SLOW_DRIVE_AREA" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_SLOW_DRIVE_AREA" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label34" type="label" helpText="Nature object:"/>  
+      <option defaultValue="" id="lNATURE_OBJECT" required="false" hidden="false" type="label" editable="true" helpText="Nature object:"/>  
+      <option defaultValue="" id="MIN_NATURE_OBJECT" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_NATURE_OBJECT" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label35" type="label" helpText="Parking area:"/>  
+      <option defaultValue="" id="lPARKING_AREA" required="false" hidden="false" type="label" editable="true" helpText="Parking area:"/>  
+      <option defaultValue="" id="MIN_PARKING_AREA" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_PARKING_AREA" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label36" type="label" helpText="Sidewalk:"/>  
+      <option defaultValue="" id="lSIDEWALK" required="false" hidden="false" type="label" editable="true" helpText="Sidewalk:"/>  
+      <option defaultValue="" id="MIN_SIDEWALK" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_SIDEWALK" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label37" type="label" helpText="Ego car:"/>  
+      <option defaultValue="" id="lEGO_CAR" required="false" hidden="false" type="label" editable="true" helpText="Ego car:"/>  
+      <option defaultValue="" id="MIN_EGO_CAR" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_EGO_CAR" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label38" type="label" helpText="Painted driv. instr.:"/>  
+      <option defaultValue="" id="lPAINTED_DRIV_INSTR" required="false" hidden="false" type="label" editable="true" helpText="Painted driv. instr.:"/>  
+      <option defaultValue="" id="MIN_PAINTED_DRIV_INSTR" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_PAINTED_DRIV_INSTR" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label39" type="label" helpText="Traffic guide obj.:"/>  
+      <option defaultValue="" id="lTRAFFIC_GUIDE_OBJ" required="false" hidden="false" type="label" editable="true" helpText="Traffic guide obj.:"/>  
+      <option defaultValue="" id="MIN_TRAFFIC_GUIDE_OBJ" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_TRAFFIC_GUIDE_OBJ" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label40" type="label" helpText="Dashed line:"/>  
+      <option defaultValue="" id="lDASHED_LINE" required="false" hidden="false" type="label" editable="true" helpText="Dashed line:"/>  
+      <option defaultValue="" id="MIN_DASHED_LINE" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_DASHED_LINE" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label41" type="label" helpText="RD normal street:"/>  
+      <option defaultValue="" id="lRD_NORMAL_STREET" required="false" hidden="false" type="label" editable="true" helpText="RD normal street:"/>  
+      <option defaultValue="" id="MIN_RD_NORMAL_STREET" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_RD_NORMAL_STREET" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label42" type="label" helpText="Sky:"/>  
+      <option defaultValue="" id="lSKY" required="false" hidden="false" type="label" editable="true" helpText="Sky:"/>  
+      <option defaultValue="" id="MIN_SKY" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_SKY" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label43" type="label" helpText="Buildings:"/>  
+      <option defaultValue="" id="lBUILDINGS" required="false" hidden="false" type="label" editable="true" helpText="Buildings:"/>  
+      <option defaultValue="" id="MIN_BUILDINGS" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_BUILDINGS" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label44" type="label" helpText="Blurred area:"/>  
+      <option defaultValue="" id="lBLURRED_AREA" required="false" hidden="false" type="label" editable="true" helpText="Blurred area:"/>  
+      <option defaultValue="" id="MIN_BLURRED_AREA" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_BLURRED_AREA" label="Maximum" required="false" hidden="false" type="text" editable="true"/>  
+      <option id="label45" type="label" helpText="Rain dirt:"/>  
+      <option defaultValue="" id="lRAIN_DIRT" required="false" hidden="false" type="label" editable="true" helpText="Rain dirt:"/>  
+      <option defaultValue="" id="MIN_RAIN_DIRT" label="Minimum" required="false" hidden="false" type="text" editable="true"/>  
+      <option defaultValue="" id="MAX_RAIN_DIRT" label="Maximum" required="false" hidden="false" type="text" editable="true"/> 
+    </application>  
+    <application id="advanced" state="expandEnable" info="Advanced Search" helpText="Asterisk (*) = required field."> 
+      <option defaultValue="" id="TAGS" label="Metadata Tags" required="false" hidden="false" type="text" editable="true" helpText="Enter the labels the data needs to have"/> 
+    </application>  
+    <application id="cluster" state="expandEnable" info="Cluster-Parameter" helpText="Asterisk (*) = required field."> 
+      <option defaultValue="normal" id="QUEUE" label="Queue" required="false" hidden="false" type="list" editable="true"> 
+        <action id="queues">/opt/ibm/lsfsuite/ext/gui/conf/application/options/queue.sh normal</action> 
+      </option> 
+    </application>  
+    <application id="file" state="expandEnable" info="Applikations-Daten-Files" helpText="Asterisk (*) = required field."/>  
+    <application id="result" state="expandEnable" optionFor="client" info="Download Result"/> 
+  </repository>  
+  <description/> 
+</agent>
