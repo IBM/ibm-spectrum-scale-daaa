@@ -33,14 +33,14 @@ Code can be divided into the following parts:
 
 ### Core code running generic workflow
 
-Scripts to run the generic workflow can be found in the [core](https://github.com//IBM/ibm-spectrum-scale-daaa/core/README.md) directory.
+Scripts to run the generic workflow can be found in the [core](core/README.md) directory.
 Some details are logged for later review. Logfiles can be found in the user home directory in our case `/home/dean/` on the IBM Spectrum Spectrum LSF node.
 
 
 ### Workload triggers
 
-Scripts that trigger the workflow can be found in the [trigger](https://github.com//IBM/ibm-spectrum-scale-daaa/trigger/README.md) directory.
+Scripts that trigger the workflow can be found in the [trigger](trigger/README.md) directory.
 
 
 ### Workload execution
-Scripts that execute the workload in example OpenShift, including managing the persistent volumes can be found in the [workloads](https://github.com//IBM/ibm-spectrum-scale-daaa/workloads/README.md) directory.
+Scripts that execute the workload in example OpenShift, including managing the persistent volumes can be found in the [workloads](workloads/README.md) directory.
