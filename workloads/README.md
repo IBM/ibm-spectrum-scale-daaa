@@ -15,7 +15,7 @@ in OpenShift in the context of the *system:admin* user because the creation of t
 
 The *persistent volume claims* (PVCs) as well as the *pod* that is running the workload 
 are bound to the user's namespace. The workload is started as a Kubernetes job to ensure that the workload is actually 
-executed in a user context with an arbitrarily determined user ID by OpenShift, 
+executed in a user context with an arbitrary user ID determined by OpenShift, 
 i.e. the workload is not executed in a system:admin or privileged context.
 
 The workload execution task in our DAAA workflow example comprises two parts:
@@ -31,10 +31,11 @@ The workload execution task in our DAAA workflow example comprises two parts:
 
 1. Reads DAAA config from "daaa_config" file
 2. Reads DAAA job parameters from config file in user's home directory on the LSF node, e.g.
-
-> -oc_namespace=dean : The user's namespace to execute the workload in.    
-> -oc_pvc=dean-workspace-pvc : The user's *persistent volume claim* (PVC) which binds to the user's *persistent volume* (PV) that holds the executable code for the workload.
-> -oc_path_exec=run.sh : The path to the executable code in the user's *persistent volume claim* (PVC) to run the scheduled workload.
+```
+  -oc_namespace=dean : The user's namespace to execute the workload in.    
+  -oc_pvc=dean-workspace-pvc : The user's *persistent volume claim* (PVC) which binds to the user's *persistent volume* (PV) that holds the executable code for the workload.
+  -oc_path_exec=run.sh : The path to the executable code in the user's *persistent volume claim* (PVC) to run the scheduled workload.
+```
 
 **Action:**
 
