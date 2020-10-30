@@ -16,6 +16,7 @@ GPFSlocal:
   arcDir: "a2d2_arc"
   nfsDir: "a2d2_nfs"
   cosDir: "a2d2_cos"
+  modDir: "models/A2D2-MDL"
 
 # Container image to use for job/pod
 image:

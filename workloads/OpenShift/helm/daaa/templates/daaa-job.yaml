@@ -33,6 +33,8 @@ spec:
             mountPath: "/data/arc"
             readOnly: true
           - name: vol4
+            mountPath: "/models"
+          - name: vol5
             mountPath: "/workspace"
       volumes:
         - name: vol1
@@ -46,7 +48,9 @@ spec:
             claimName: {{ include "daaa.fullname" . }}-arc-pvc
         - name: vol4
           persistentVolumeClaim:
+            claimName: {{ include "daaa.fullname" . }}-models-pvc
+        - name: vol5
+          persistentVolumeClaim:
             claimName: {{ .Values.user.pvc }}
       restartPolicy: Never
   backoffLimit: 3
-

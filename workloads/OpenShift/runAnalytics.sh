@@ -18,7 +18,7 @@
 # ----------------------------------------------------------
 # Start Analytics Workload in OpenShift for DAAA Workflow 
 # ----------------------------------------------------------
-# Run: runAnalytics.sh <JOBID>
+# Run: runAnalytics.sh <JOBID>                         v1.01
 # ----------------------------------------------------------
 # Input:
 #    (1) Reads DAAA config from "daaa_config" file
@@ -39,7 +39,7 @@
 # ----------------------------------------------------------
 # In this sample workflow the DAAA job is temporarily
 # creating new persistent volumes (PVs) with access to the
-# prefetched data from the DAAA pipeline for the duration of
+# data provided by the DAAA pipeline for the duration of
 # the job. After the job has finished the PVs are removed. 
 # For the PV creation system:admin privileges are required.
 # The workload is executed in the user's namespace as a 
@@ -118,10 +118,10 @@ sleep 15
 echo
 echo "### RESOURCES DEPLOYED ## $(hostname -s) ## OCP user: $OC_USER ## $(date +%Y%m%d-%H:%M:%S) ###"
 echo "### Job-ID: $JOBID ## Namespace: $OC_NAMESPACE ## PVC: $OC_PVC ## Executable code: $OC_PATH_EXEC ###"
-oc get pvc -n $OC_NAMESPACE
-oc get pv | grep "daaa\|NAME"
-oc get jobs -n $OC_NAMESPACE
-oc get pods -n $OC_NAMESPACE
+oc get pv -l app.kubernetes.io/instance="daaa-$JOBID"
+oc get pvc  -n $OC_NAMESPACE 
+oc get jobs -n $OC_NAMESPACE -l app.kubernetes.io/instance="daaa-$JOBID"
+oc get pods -n $OC_NAMESPACE | grep "^NAME\|daaa-$JOBID"
 
 # Wait for job to complete
 echo
@@ -147,10 +147,10 @@ sleep 10
 echo
 echo "### CLEAN UP AFTER JOB COMPLETION ## $(hostname -s) ## OCP user: $OC_USER ## $(date +%Y%m%d-%H:%M:%S) ###"
 echo "### Job-ID: $JOBID ## Namespace: $OC_NAMESPACE ## PVC: $OC_PVC ## Executable code: $OC_PATH_EXEC ###"
-oc get pvc -n $OC_NAMESPACE
-oc get pv | grep "daaa\|NAME"
-oc get jobs -n $OC_NAMESPACE
-oc get pods -n $OC_NAMESPACE
+oc get pv -l app.kubernetes.io/instance="daaa-$JOBID"
+oc get pvc  -n $OC_NAMESPACE 
+oc get jobs -n $OC_NAMESPACE -l app.kubernetes.io/instance="daaa-$JOBID"
+oc get pods -n $OC_NAMESPACE | grep "^NAME\|daaa-$JOBID"
 
 echo
 echo "### Completed analytics on OpenShift ## $(hostname -s) ## $(date +%Y%m%d-%H:%M:%S) ###"
