@@ -151,10 +151,10 @@ The generated file content looks similar to:
 
 `..._prefetchlist_IBM_COS.txt`
 ```
-/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180925_135056/camera/cam_side_right/20180925135056_camera_sideright_000041260.png
-/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180925_135056/camera/cam_side_right/20180925135056_camera_sideright_000042896.png
-/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20181008_095521/camera/cam_front_center/20181008095521_camera_frontcenter_000013643.png
-/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20181008_095521/camera/cam_front_center/20181008095521_camera_frontcenter_000028578.png
+/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180925_124435/camera/cam_front_center/20180925124435_camera_frontcenter_000084841.png
+/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180925_124435/camera/cam_front_center/20180925124435_camera_frontcenter_000097358.png
+/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20181016_095036/camera/cam_front_center/20181016095036_camera_frontcenter_000038923.png
+/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20181008_095521/camera/cam_front_center/20181008095521_camera_frontcenter_000049050.png
 ...
 ```
 
