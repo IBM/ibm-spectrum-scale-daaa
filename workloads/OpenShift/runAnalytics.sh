@@ -33,6 +33,9 @@
 # - oc (OpenShift client)
 # - helm (Helm binary)
 # - .kube/config to access OpenShift cluster as system:admin
+# - OpenShift v4.x (or higher) with
+#   IBM Spectrum Scale CSI driver v2.0 (or higher)
+# - IBM Spectrum Scale 5.1.0 (or higher) for DAAA workflow
 # ----------------------------------------------------------
 # In this sample workflow the DAAA job is temporarily
 # creating new persistent volumes (PVs) with access to the
