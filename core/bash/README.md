@@ -60,12 +60,15 @@ The path to this file is provided to the `prepFileLists.sh` script.
 
 The provided file content looks similar to:
 ```
-/data2/nfs/camera_lidar_semantic/20181107_133445/camera/cam_front_center/,20181107133445_camera_frontcenter_000036303.png,A2D2_NFS,NFS,resdnt
-/data2/nfs/camera_lidar_semantic/20181107_133445/camera/cam_front_center/,20181107133445_camera_frontcenter_000020315.png,A2D2_NFS,NFS,resdnt
-/data2/nfs/camera_lidar_semantic/20181107_133445/camera/cam_front_center/,20181107133445_camera_frontcenter_000018157.png,A2D2_NFS,NFS,resdnt
+/data2/nfs/camera_lidar_semantic/20181107_132300/camera/cam_front_center/,20181107132300_camera_frontcenter_000004103.png,A2D2_NFS,NFS,resdnt
+/data2/nfs/camera_lidar_semantic/20181107_132300/camera/cam_front_center/,20181107132300_camera_frontcenter_000004913.png,A2D2_NFS,NFS,resdnt
+/data2/nfs/camera_lidar_semantic/20181204_191844/camera/cam_front_center/,20181204191844_camera_frontcenter_000008839.png,A2D2_NFS,NFS,resdnt
+/data2/nfs/camera_lidar_semantic/20181204_191844/camera/cam_front_center/,20181204191844_camera_frontcenter_000015195.png,A2D2_NFS,NFS,resdnt
 ...
-a2d2/,camera_lidar_semantic/20180807_145028/camera/cam_front_center/20180807145028_camera_frontcenter_000012153.png,a2d2,IBM COS,
-a2d2/,camera_lidar_semantic/20180807_145028/camera/cam_front_center/20180807145028_camera_frontcenter_000027353.png,a2d2,IBM COS,
+a2d2/,camera_lidar_semantic/20180925_135056/camera/cam_front_center/20180925135056_camera_frontcenter_000045292.png,a2d2,IBM COS,
+a2d2/,camera_lidar_semantic/20180925_135056/camera/cam_front_center/20180925135056_camera_frontcenter_000047668.png,a2d2,IBM COS,
+a2d2/,camera_lidar_semantic/20181008_095521/camera/cam_front_center/20181008095521_camera_frontcenter_000013643.png,a2d2,IBM COS,
+a2d2/,camera_lidar_semantic/20181008_095521/camera/cam_front_center/20181008095521_camera_frontcenter_000028578.png,a2d2,IBM COS,
 ...
 /ibm/fs0/archive/camera_lidar_semantic/20180807_145028/camera/cam_front_center/,20180807145028_camera_frontcenter_000063607.png,fs0,Spectrum Scale,premig
 /ibm/fs0/archive/camera_lidar_semantic/20180810_142822/camera/cam_front_center/,20180810142822_camera_frontcenter_000023771.png,fs0,Spectrum Scale,premig
@@ -148,10 +151,10 @@ The generated file content looks similar to:
 
 `..._prefetchlist_IBM_COS.txt`
 ```
-/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180807_145028/camera/cam_front_center/20180807145028_camera_frontcenter_000012153.png
-/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180807_145028/camera/cam_front_center/20180807145028_camera_frontcenter_000027353.png
-/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180807_145028/camera/cam_front_center/20180807145028_camera_frontcenter_000039699.png
-/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180807_145028/camera/cam_front_center/20180807145028_camera_frontcenter_000039861.png
+/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180925_124435/camera/cam_front_center/20180925124435_camera_frontcenter_000084841.png
+/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20180925_124435/camera/cam_front_center/20180925124435_camera_frontcenter_000097358.png
+/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20181016_095036/camera/cam_front_center/20181016095036_camera_frontcenter_000038923.png
+/gpfs/ess3000_4M/a2d2_cos/camera_lidar_semantic/20181008_095521/camera/cam_front_center/20181008095521_camera_frontcenter_000049050.png
 ...
 ```
 
