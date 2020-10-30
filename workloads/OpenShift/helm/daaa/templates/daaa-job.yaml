@@ -1,0 +1,52 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "daaa.fullname" . }}-job
+  labels:
+    {{- include "daaa.labels" . | nindent 4 }}
+spec:
+  template:
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["/bin/sh"]
+        args: ["/workspace/{{ .Values.user.command }}"]
+        {{- if or .Values.user.uid .Values.user.gid }}
+        securityContext:
+        {{- end }}
+        {{- if .Values.user.uid }}
+          runAsUser: {{ .Values.user.uid }}
+        {{- end }}
+        {{- if .Values.user.gid }}
+          runAsGroup: {{ .Values.user.gid }}
+        {{- end }}
+        volumeMounts:
+          - name: vol1
+            mountPath: "/data/cos"
+            readOnly: true
+          - name: vol2
+            mountPath: "/data/nfs"
+            readOnly: true
+          - name: vol3
+            mountPath: "/data/arc"
+            readOnly: true
+          - name: vol4
+            mountPath: "/workspace"
+      volumes:
+        - name: vol1
+          persistentVolumeClaim:
+            claimName: {{ include "daaa.fullname" . }}-cos-pvc
+        - name: vol2
+          persistentVolumeClaim:
+            claimName: {{ include "daaa.fullname" . }}-nfs-pvc
+        - name: vol3
+          persistentVolumeClaim:
+            claimName: {{ include "daaa.fullname" . }}-arc-pvc
+        - name: vol4
+          persistentVolumeClaim:
+            claimName: {{ .Values.user.pvc }}
+      restartPolicy: Never
+  backoffLimit: 3
+

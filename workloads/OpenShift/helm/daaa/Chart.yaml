@@ -1,0 +1,13 @@
+apiVersion: v2
+name: daaa
+type: application
+version: 0.0.1
+appVersion: 0.0.1
+description: A Helm chart for running a DAAA job on OpenShift/Kubernetes
+home: https://github.com/IBM/ibm-spectrum-scale-daaa
+icon: https://www.ibm.com/cloud-computing/scalable-icon.svg
+sources: 
+  - https://github.com/IBM/ibm-spectrum-scale-daaa/tree/dev/workloads/OpenShift
+maintainers:
+  - name: Gero Schmidt
+    email: gerosch@de.ibm.com

@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "daaa.fullname" . }}-nfs-pvc
+  labels:
+    {{- include "daaa.labels" . | nindent 4 }}
+spec:
+  storageClassName: static
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi
+  selector: 
+    matchLabels:
+      {{- include "daaa.labels" . | nindent 6 }}
+      pvtype: nfs 

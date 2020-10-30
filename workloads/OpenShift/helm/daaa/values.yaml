@@ -1,0 +1,33 @@
+# ---------------------------------------------------------
+# Default Helm chart values for DAAA job templates  v0.0.1
+# ---------------------------------------------------------
+#  Version history:
+#  2020-10-08 Initial version, Gero Schmidt
+# ---------------------------------------------------------
+# Deploy Helm chart into given namespace, e.g.
+# $ helm install daaa-<unique-id> daaa-job --namespace <ns>
+# ---------------------------------------------------------
+
+# Spectrum Scale Client Filesystem and AFM Fileset Directories
+GPFSlocal:
+  clusterID: "16217308676025981087"
+  fileSystemID: "099B6A7A:5EB99743"
+  mainPath: "/gpfs/ess3000_4M"
+  arcDir: "a2d2_arc"
+  nfsDir: "a2d2_nfs"
+  cosDir: "a2d2_cos"
+
+# Container image to use for job/pod
+image:
+  name: alpine
+  tag: 3.12
+  pullPolicy: IfNotPresent
+
+# User private PVC with path to script for workload execution
+# (no uid/gid needs to be defined as Job obtains an arbitrary user id assigned) 
+user:
+  uid:     ""
+  gid:     ""
+  pvc:     "dean-workspace-pvc"
+  command: "run.sh"
+
