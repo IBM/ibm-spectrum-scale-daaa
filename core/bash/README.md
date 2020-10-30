@@ -28,7 +28,9 @@ and metadata the to be analyzed data must match, as example:
 
 **Action:**
 This script provides the logical flow by executing IBM Spectrum LSF sub jobs executing scripts that e.g. query discover, prepare the file lists, execute the prefetch/eviction by IBM Spectrum Scale AFM and so on.
+
 A unique id is created that is used for log files and all sub jobs. Sub job execution is based on the successful exit of an earlier sub job (using bsub argument -w).
+
 Input arguments are written into a file in users home directory `..._recLSFArgs.txt`.
 
 **Output:**
