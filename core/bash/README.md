@@ -75,7 +75,7 @@ a2d2/,camera_lidar_semantic/20180807_145028/camera/cam_front_center/201808071450
 From IBM Spectrum Discover returned reformatted file list placed in users home directory `..._discover_search_afm.txt`.
 
 
-#### discover_search.sh
+### discover_search.sh
 **Location:** LSF Node:/usr/local/bin/DAAA/discover_search.sh
 
 This script is a wrapper preparing for the IBM Spectrum Discover REST search call.
@@ -239,7 +239,7 @@ If the script was called with provide a content file = yes and it is a prefetch 
 If requested, an updated `content.txt` file is copied into the provided fileset root directory.
 
 
-#### evictDataOut.sh
+### evictDataOut.sh
 **Location:** LSF Node:/usr/local/bin/DAAA/evictDataOut.sh
 
 This script is called by the `DAAA.sh` script as a sub job. It triggers the IBM Spectrum Scale evict process.
