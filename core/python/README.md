@@ -22,6 +22,7 @@ It has multiple different functions that are shortly explained. It provides each
 
 They match in general the functionality that is provided by the [bash](../bash/) scripts.
 
+
 **getStatus**
 Provides details such as the `uniqueId`, `lastQuery`, `nextAction`, `status`, `availableData`.
 
@@ -47,6 +48,7 @@ Sample output:
 }
 ```
 
+
 **getConfig**
 Prints the configuration as provided in the `DAAA.ini` file.
 
@@ -69,6 +71,7 @@ connection_datasource_arc=fs0
 ...
 ```
 
+
 **getFileLists**
 Prints the per storage system available and by the IBM Spectrum Scale for the search replied file lists.
 
@@ -90,39 +93,46 @@ Spectrum Scale
 '/gpfs/ess3000_4M/a2d2_arc/camera_lidar_semantic/20180810_142822/camera/cam_front_center/20180810142822_camera_frontcenter_000025399.png']
 ```
 
+
 **searchDiscover**
 Queries the IBM Spectrum Discover REST interface with given tags.
 
 The last provided query is stored, so that a 2nd query with the same tags can be called without providing the details again.
 
-The query results is stored in an array and can be requested with the `getFileLists` function.
+The query results are stored in an array and can be requested with the `getFileLists` function.
 
 The `action` argument (`prefetch` or `evict`) is needed to decide on Tape archive / migration actions.
 
 The `arconly` argument (`True` or `False`) is optional. When set to `True`, it triggers only Tape archive / migration file list updates. The earlier generated AFM cache / evict lists will not be changed.
+
 
 **recallArchive**
 Recalls the provided files from Tape via IBM Spectrum Archive if needed.
 
 The file list is generated `/tmp/<unique_id>_recall.txt` and is copied to the Archive server and a recall is triggered.
 
+
 **cacheDataIn**
 Calls the `afmExec.sh` script on the IBM Spectrum Scale client node. It triggers the Active File Management feature to prefetch the data.
 
 The file list is generated `/tmp/<unique_id>_prefetch_<type>.txt` and is copied to the Scale client node and a prefetch is triggered.
 
+
 **runAnalytics**
 Placeholder, run any of your analytic code here.
+
 
 **evictDataOut**
 Calls the `afmExec.sh` script on the IBM Spectrum Scale client node. It triggers the Active File Management feature to evict the data.
 
 The file list is generated `/tmp/<unique_id>_evict_<type>.txt` and is copied to the Scale client node and an evict is triggered.
 
+
 **migrateArchive**
 Migrates the provided files to Tape via IBM Spectrum Archive if needed.
 
 The file list is generated `/tmp/<unique_id>_migrate.txt` and is copied to the Archive server and a migrate is triggered.
+
 
 **cleanup**
 Removes all temporary generated files.
