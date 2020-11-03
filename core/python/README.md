@@ -24,6 +24,7 @@ They match in general the functionality that is provided by the [bash](../bash/)
 
 
 **getStatus**
+
 Provides details such as the `uniqueId`, `lastQuery`, `nextAction`, `status`, `availableData`.
 
 If in the `DAAA.ini`file `[general] print_status_always` is set to `True`, with all external functions the status is printed at the end.
@@ -50,6 +51,7 @@ Sample output:
 
 
 **getConfig**
+
 Prints the configuration as provided in the `DAAA.ini` file.
 
 Sample output:
@@ -73,6 +75,7 @@ connection_datasource_arc=fs0
 
 
 **getFileLists**
+
 Prints the per storage system available and by the IBM Spectrum Scale for the search replied file lists.
 
 Provide the storage system (as replied by `getStatus`) in an array to get certain results or leave it empty to get a list of all.
@@ -95,6 +98,7 @@ Spectrum Scale
 
 
 **searchDiscover**
+
 Queries the IBM Spectrum Discover REST interface with given tags.
 
 The last provided query is stored, so that a 2nd query with the same tags can be called without providing the details again.
@@ -107,34 +111,40 @@ The `arconly` argument (`True` or `False`) is optional. When set to `True`, it t
 
 
 **recallArchive**
+
 Recalls the provided files from Tape via IBM Spectrum Archive if needed.
 
 The file list is generated `/tmp/<unique_id>_recall.txt` and is copied to the Archive server and a recall is triggered.
 
 
 **cacheDataIn**
+
 Calls the `afmExec.sh` script on the IBM Spectrum Scale client node. It triggers the Active File Management feature to prefetch the data.
 
 The file list is generated `/tmp/<unique_id>_prefetch_<type>.txt` and is copied to the Scale client node and a prefetch is triggered.
 
 
 **runAnalytics**
+
 Placeholder, run any of your analytic code here.
 
 
 **evictDataOut**
+
 Calls the `afmExec.sh` script on the IBM Spectrum Scale client node. It triggers the Active File Management feature to evict the data.
 
 The file list is generated `/tmp/<unique_id>_evict_<type>.txt` and is copied to the Scale client node and an evict is triggered.
 
 
 **migrateArchive**
+
 Migrates the provided files to Tape via IBM Spectrum Archive if needed.
 
 The file list is generated `/tmp/<unique_id>_migrate.txt` and is copied to the Archive server and a migrate is triggered.
 
 
 **cleanup**
+
 Removes all temporary generated files.
 
 
