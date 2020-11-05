@@ -8,3 +8,7 @@ Some details are logged for later review. Logfiles can be found in the user home
 ### bash scripts
 
 Bash scripts to run the generic workflow can be found in the [bash](bash/) directory.
+
+### python scripts
+
+Python scripts to run the generic workflow can be found in the [python](python/) directory.
