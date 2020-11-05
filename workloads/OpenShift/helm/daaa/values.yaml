@@ -8,7 +8,7 @@
 # $ helm install daaa-<unique-id> daaa-job --namespace <ns>
 # ---------------------------------------------------------
 
-# Spectrum Scale Client Filesystem and AFM Fileset Directories
+# Spectrum Scale File System and AFM Fileset Directories
 GPFSlocal:
   clusterID: "16217308676025981087"
   fileSystemID: "099B6A7A:5EB99743"
