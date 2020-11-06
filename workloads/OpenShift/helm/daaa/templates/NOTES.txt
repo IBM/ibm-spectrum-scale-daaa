@@ -1,0 +1,28 @@
+------------------------------------------------
+IBM DAAA - Job Template for OpenShift/Kubernetes
+------------------------------------------------
+
+Release {{ .Release.Name }} was deployed in namespace {{ .Release.Namespace }}.
+
+You can check a brief status of the deployed product by running:
+
+    # helm list {{ .Release.Name }}
+
+You can check an extended status of all associated resources of the deployed product by running:
+
+    # helm get manifest {{ .Release.Name }} | oc get -f -
+
+You can check the release history of the deployed product by running:
+
+    # helm history {{ .Release.Name }}
+
+Verify that all pods of the deployed product are in a running state. You can watch the pod status by using:
+
+    # oc get pods -n {{ .Release.Namespace }} -w
+
+You can delete the deployed product by running:
+
+    # helm delete {{ .Release.Name }} --purge
+
+For more information please refer to the Github project at
+https://github.com/IBM/ibm-spectrum-scale-daaa .
