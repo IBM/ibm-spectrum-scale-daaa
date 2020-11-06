@@ -176,5 +176,5 @@ See the IBM Spectrum Scale Knowledge Center documentation on what can be used fo
 If the script was called with provide a content file = yes and it is a prefetch action, it copies the file list as `content.txt` file into the provided fileset root directory. If it was for a evict action, it empties the `content.txt` file.
 
 **Output:**
-If requested, an updated `content.txt` file is copied into the provided fileset root directory.
+If requested (see `daaa.ini`), an updated `content.txt` file is copied into the provided fileset root directory.
 
